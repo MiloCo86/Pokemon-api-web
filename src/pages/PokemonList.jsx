@@ -31,6 +31,7 @@ const PokemonList = () => {
     setOffset(offset + 12);
   }
 
+
   return (
     <div className="pokemon-list">
       <div className="row">
@@ -40,14 +41,17 @@ const PokemonList = () => {
         > 
           Load more Pokemon
         </button>
-        <div className="pokemon-list__page-num">page: {(offset+12)/12}</div>
+        <div className="pokemon-list__page-num">pokemon {offset+1} to {offset+12} </div>
       </div>
       <div className="promo-card-container">
         {pokemon.map((singlePokemon, index) => { // index  = 0, 1, 2, 3, 4, 5
+          const number = Math.floor(Math.random() * (100))
+          const shiny = number < 3 ? true : false
           return(
             <PokemonCard 
               key={index+1} 
               singlePokemon={singlePokemon}
+              shiny={shiny}
             /> 
           )
         })}

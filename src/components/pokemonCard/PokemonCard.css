@@ -11,14 +11,25 @@
     &:hover {
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-  }
-  .single-pokemon__name {
+}
+.single-pokemon__name {
     text-transform: capitalize;
     margin-top: 30px;
     margin-left: 10px;
     font-family: "Caveat Brush", cursive;
     font-size: 25px;
-  }
+}
+
+.is-shiny{
+    -webkit-box-shadow:0px 0px 2px 2px rgba(184,162,55,0.88);
+    -moz-box-shadow: 0px 0px 2px 2px rgba(184,162,55,0.88);
+    box-shadow: 0px 0px 2px 2px rgba(184,162,55,0.88);
+    &:hover {
+    -webkit-box-shadow:0px 0px 4px 4px rgba(173,171,163,0.88);
+    -moz-box-shadow: 0px 0px 4px 4px rgba(173,171,163,0.88);
+    box-shadow: 0px 0px 4px 4px rgba(173,171,163,0.88);
+    }
+}
 
 .grass{
     background: rgb(255,255,255);

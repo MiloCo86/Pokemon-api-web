@@ -1,6 +1,6 @@
 
 import {useState, useEffect} from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./PokemonDetailView.css"
 
 const PokemonDetailView = () => {
@@ -41,8 +41,9 @@ const PokemonDetailView = () => {
       {loader && <h1>Loading....</h1>}
       {!loader && 
         <div className={`pokemon-detail-view__container ${pkmType}_shadow`}>
+          <Link className='close-icon' to={'/'}>❌</Link>
           <div className="pokemon-detail-view__header">
-            <h4>{pokemonData.name}</h4>
+            <h4>{pokemonData.name}</h4>  
             <h5>No. {pokemonData.id}</h5>
           </div>
           <div className="pokemon-details__main">
@@ -75,7 +76,7 @@ const PokemonDetailView = () => {
                 <div className="stats_container">
                   {pokemonData?.stats?.map((statObj, index) => {
                     return (
-                      <div className="stats_content">
+                      <div key={index} className="stats_content">
                         <p className="pokemon-stats" key={index}>{statObj?.stat?.name}: </p>
                         <p className={`stat-bar ${pkmType}_bar`} >{"-".repeat(statObj?.base_stat/10)} </p>
                         <p className=''>{statObj?.base_stat}</p>
