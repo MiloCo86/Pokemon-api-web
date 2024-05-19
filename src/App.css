@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+
+:root{
+  --fire: rgba(234,112,60,1);
+  --grass: rgba(113,197,88,1);
+  --water: rgba(83,153,226,1);
+  --bug: rgba(166,185,26,1);
+  --flying: rgba(125,166,222,1);
+  --normal: rgba(170,176,159,1);
+  --poison: rgba(180,104,183,1);
+  --electric: rgba(229,197,49,1);
+  --ground: rgba(204,159,79,1);
+  --fairy: rgba(227,151,209,1);
+  --fighting: rgba(203,95,72,1);
+  --psychic: rgba(229,112,155,1);
+  --rock: rgba(164,149,97,1);
+  --ghost: rgba(132,106,182,1);
+  --ice: rgba(112,203,212,1);
+  --dragon: rgba(106,123,175,1);
+  --dark: rgba(115,108,117,1);
+  --steel: rgba(137,161,176,1);
+}
 a {
   text-decoration: none;
   color: black;
@@ -9,8 +31,10 @@ a {
 }
 
 .pokemon-list__page-num {
+  font-family: "Caveat Brush", cursive;
   font-weight: 600;
   font-size: 1.5em;
+  margin-right: 30px;
 }
 
 .row {
@@ -20,7 +44,8 @@ a {
 }
 
 .pokemon-list__load-more {
-  background-color: rgb(58, 111, 94);
+  font-family: "Caveat Brush", cursive;
+  background-color: rgb(238, 92, 104);
   color: white;
   padding: 20px;
   border-radius: 10px;
@@ -50,65 +75,13 @@ a {
   }
 }
 
-
-
-.single-pokemon {
-  font-family: arial, sans-serif;
-  border: 1px solid green;
-  padding: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: black;
-
-  &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-}
-
-.single-pokemon__name {
-  text-transform: capitalize;
-}
-
 .black-background {
   background-color: black;
   color: white;
 }
 
-.two-columns {
-  display: flex;
-  justify-content: space-between;
-}
-
-.pokemon-detail-view__info {
-  width: 600px;
-}
-
-.pokemon-detail-view__name {
-  font-weight: 600;
-  font-size: 1.2em;
-  text-align: center;
-  text-transform: capitalize;
-}
-
-.pokemon-detail-view__image {
-  font-weight: 600;
-  text-align: center;
-  text-transform: capitalize;
-}
-
-.pokemon-stats {
-  display: flex;
-  margin: 5px 0;
-}
-
-.stat-bar {
-  width: 60px;
-  height: 20px;
-  background-color: green;
-}
 
 
-.pets-list__container {
-  display: grid;
-  grid-template-columns: repeat(3 , 1fr);
-}
+
+
+

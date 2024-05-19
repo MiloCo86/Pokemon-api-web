@@ -14,7 +14,7 @@ import DefaultLayout from './layout/DefaultLayout';
 // PAGES
 import PokemonList from './pages/PokemonList';
 import PokemonDetailView from './pages/PokemonDetailView';
-import PetsList from './pages/PetsList';
+
 
 // STYLING
 import './App.css'
@@ -43,7 +43,6 @@ function App() {
       <Route path="/" element={<DefaultLayout/>}>
         <Route index element={<PokemonList />} />
         <Route path="/pokemon/:pokemonName" element={<PokemonDetailView />} />
-        <Route path="/pets" element={<PetsList />} />
       </Route>
   
     )

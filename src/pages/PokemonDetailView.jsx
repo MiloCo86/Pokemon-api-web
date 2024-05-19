@@ -1,6 +1,7 @@
 
 import {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
+import "./PokemonDetailView.css"
 
 const PokemonDetailView = () => {
 
@@ -13,6 +14,7 @@ const PokemonDetailView = () => {
   // or a progress bar
 
   const [loader, setLoader] = useState(true);
+  const [pkmType,setPkmType] = useState('')
 
 
   // fetch data from the api for the specific pokemon in the url
@@ -26,6 +28,7 @@ const PokemonDetailView = () => {
       .then(response => response.json())
       .then(data =>{
         setPokemonData(data);
+        setPkmType(data.types[0].type.name)
         setLoader(false);
       })
       .catch(err => console.error(err.message));
@@ -34,30 +37,53 @@ const PokemonDetailView = () => {
   // once data is processed to JSON, update state
 
   return (
-    <div>
+    <div className='container'>
       {loader && <h1>Loading....</h1>}
       {!loader && 
-        <div className="pokemon-detail-view__info">
-          <div className="pokemon-detail-view__name">{pokemonData.name}</div>
-            <div className="two-columns">
-            <div className="pokemon-detail-view__image">
-              <div>No. 150</div>
+        <div className={`pokemon-detail-view__container ${pkmType}_shadow`}>
+          <div className="pokemon-detail-view__header">
+            <h4>{pokemonData.name}</h4>
+            <h5>No. {pokemonData.id}</h5>
+          </div>
+          <div className="pokemon-details__main">
+            <div className={`pokemon-detail-view__image ${pkmType}`}>
               <img src={pokemonData.sprites.front_default} />
-              <div>Psychic</div>
             </div>
             <div className="pokemon-detail-view__stats">
-              <div className="two-columns">
-                <div>Height: 20 Decimeters</div>
-                <div>Weight: 1220 Hectograms</div>
+              <div className={`types ${pkmType}_shadow-line`}>
+                <h3>Types</h3>
+                <div className="types_content">
+                {pokemonData?.types?.map((types, index) => {
+                  //variable that will be the class
+                  const pkType = `type__${types?.type?.name}`
+                  return (
+                    <p className={pkType} key={index}>{types?.type?.name}  </p>
+                  )
+                })}
+                </div>
               </div>
-              <div>Stats</div>
-              {pokemonData?.stats?.map((statObj, index) => {
-                return (
-                  <div  className="pokemon-stats" key={index}>{statObj?.stat?.name} : <div className="stat-bar"></div> </div>
-                )
-              })}
+              <div className="dimensions">
+                <h3>weight</h3>
+                <p>{pokemonData.weight * 0.1} Kg</p>
+                <h3>height</h3>
+                <p>{pokemonData.height * 10} cm</p>
+              </div>
             </div>
           </div>
+          <div className={`stats ${pkmType}_shadow-line`}>
+                <h3>Base Stats</h3>
+                <div className="stats_container">
+                  {pokemonData?.stats?.map((statObj, index) => {
+                    return (
+                      <div className="stats_content">
+                        <p className="pokemon-stats" key={index}>{statObj?.stat?.name}: </p>
+                        <p className={`stat-bar ${pkmType}_bar`} >{"-".repeat(statObj?.base_stat/10)} </p>
+                        <p className=''>{statObj?.base_stat}</p>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
         </div>
       }
     </div>

@@ -1,0 +1,94 @@
+
+.single-pokemon {
+    display: flex;
+    font-family: arial, sans-serif;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+  
+    &:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+  .single-pokemon__name {
+    text-transform: capitalize;
+    margin-top: 30px;
+    margin-left: 10px;
+    font-family: "Caveat Brush", cursive;
+    font-size: 25px;
+  }
+
+.grass{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(151,236,126,1) 90%, rgba(113,197,88,1) 97%);
+}
+.fire{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(255,171,125,1) 90%, rgba(234,112,60,1) 97%);
+}
+.water{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(133,183,235,1) 90%, rgba(83,153,226,1) 97%);
+}
+.bug{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(187,209,77,1) 90%, rgba(166,185,26,1) 97%);
+}
+.flying{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(162,198,246,1) 90%, rgba(125,166,222,1) 97%);
+}
+.normal{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(190,196,177,1) 90%, rgba(170,176,159,1) 97%);
+}
+.poison{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(227,153,230,1) 90%, rgba(180,104,183,1) 97%);
+}
+.electric{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(238,214,99,1) 90%, rgba(229,197,49,1) 97%);
+}
+.ground{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(235,192,117,1) 90%, rgba(204,159,79,1) 97%);
+}
+.fairy{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(250,180,233,1) 90%, rgba(227,151,209,1) 97%);
+}
+.fighting{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(252,157,137,1) 90%, rgba(203,95,72,1) 97%);
+}
+.psychic{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(250,162,194,1) 90%, rgba(229,112,155,1) 97%);
+}
+.rock{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(193,175,113,1) 90%, rgba(164,149,97,1) 97%);
+}
+.ghost{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(187,156,247,1) 90%, rgba(132,106,182,1) 97%);
+}
+.ice{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(151,236,245,1) 90%, rgba(112,203,212,1) 97%);
+}
+.dragon{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(142,162,223,1) 90%, rgba(106,123,175,1) 97%);
+}
+.dark{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(136,131,138,1) 90%, rgba(115,108,117,1) 97%);
+}
+.steel{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 77%, rgba(168,196,213,1) 90%, rgba(137,161,176,1) 97%);
+}
