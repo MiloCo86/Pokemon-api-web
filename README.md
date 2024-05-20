@@ -1,7 +1,25 @@
-### TODO
+# Pokemon App!
 
-# make page for individual pokemon
+### Initial dashboard:
 
-# fetch data for individual pokemon
+- 12 pokemon minicards on screen
+- button to display 12 next pokemon minicards
 
-# render that data on the detail page
+### pokemon minicard:
+
+- img of each pkm
+- color by pkm type
+
+### pokemon details page:
+
+- types with custom color by each type
+- weight and heigth
+- base stats with bars
+
+### extra:
+
+shiny!!!
+
+
+
+
