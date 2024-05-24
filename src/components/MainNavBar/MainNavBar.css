@@ -18,8 +18,3 @@
     font-size: 25px;
 }
 
-@media screen and (max-width: 440px) {
-    .links{
-        display: none;
-    }
-}

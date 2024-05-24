@@ -1,4 +1,5 @@
 import "./MainNavBar.css"
+import logo from './logo.png'
 
 import { Link } from "react-router-dom";
 
@@ -7,11 +8,11 @@ function MainNavBar(){
     return(
         <div className="main_navbar">
             <div className="logo">
-                <img src="https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png" alt="" />
+                <img src={logo} />
             </div>
 
             <div className="links">
-                <Link to={'/'}>Home</Link>
+                <Link to={'/?page=1'}>Home</Link>
             </div>
 
         </div>

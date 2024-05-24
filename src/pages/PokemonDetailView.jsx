@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import { useParams, Link } from "react-router-dom";
 import "./PokemonDetailView.css"
 
+
 const PokemonDetailView = () => {
 
   const {pokemonName} = useParams();
@@ -15,6 +16,7 @@ const PokemonDetailView = () => {
 
   const [loader, setLoader] = useState(true);
   const [pkmType,setPkmType] = useState('')
+  const [currentPage, setCurrentPage] = useState('')
 
 
   // fetch data from the api for the specific pokemon in the url
@@ -29,6 +31,7 @@ const PokemonDetailView = () => {
       .then(data =>{
         setPokemonData(data);
         setPkmType(data.types[0].type.name)
+        setCurrentPage(`/?page=${Math.ceil(Number(data.id)/12)}`)
         setLoader(false);
       })
       .catch(err => console.error(err.message));
@@ -41,7 +44,7 @@ const PokemonDetailView = () => {
       {loader && <h1>Loading....</h1>}
       {!loader && 
         <div className={`pokemon-detail-view__container ${pkmType}_shadow`}>
-          <Link className='close-icon' to={'/'}>❌</Link>
+          <Link className='close-icon' to={currentPage}>❌</Link>
           <div className="pokemon-detail-view__header">
             <h4>{pokemonData.name}</h4>  
             <h5>No. {pokemonData.id}</h5>
@@ -64,10 +67,14 @@ const PokemonDetailView = () => {
                 </div>
               </div>
               <div className="dimensions">
-                <h3>weight</h3>
-                <p>{pokemonData.weight * 0.1} Kg</p>
-                <h3>height</h3>
-                <p>{pokemonData.height * 10} cm</p>
+                <div className='dimensions_info'>
+                  <h3>weight: </h3>
+                  <p>{pokemonData.weight * 0.1} Kg</p>
+                </div>
+                <div className='dimensions_info'>
+                  <h3>height: </h3>
+                  <p>{pokemonData.height * 10} cm</p>
+                </div>
               </div>
             </div>
           </div>
@@ -78,8 +85,10 @@ const PokemonDetailView = () => {
                     return (
                       <div key={index} className="stats_content">
                         <p className="pokemon-stats" key={index}>{statObj?.stat?.name}: </p>
-                        <p className={`stat-bar ${pkmType}_bar`} >{"-".repeat(statObj?.base_stat/10)} </p>
-                        <p className=''>{statObj?.base_stat}</p>
+                        <div className="stats_bar_and_number">
+                          <p className={`stat-bar ${pkmType}_bar`} >{"-".repeat(statObj?.base_stat/10)} </p>
+                          <p className=''>{statObj?.base_stat}</p>
+                        </div>
                       </div>
                     )
                   })}

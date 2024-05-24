@@ -5,15 +5,21 @@ import PokemonCard from '../components/pokemonCard/PokemonCard';
 
 //css
 import "./PokemonList.css"
+import { useSearchParams} from 'react-router-dom';
 
 const PokemonList = () => {
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get('page') || 1
   const [pokemon, setPokemon] = useState([]);
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState((Number(page)-1)*12);
+  
+
+
 
 
    // when offset is updated, run this function
    useEffect(() => {
-    // do something here
     const urlForPokemon = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${offset}`;
 
     fetch(urlForPokemon)
@@ -25,11 +31,15 @@ const PokemonList = () => {
       })
   }, [offset]) // this runs when setOffset is called
 
+ 
 
   const loadMorePokemon = () => {
-    // asynchronous  
-    setOffset(offset + 12);
+
+    setOffset(offset + 12); 
+    setSearchParams({"page" : Number(page)+1})  
   }
+
+  
 
 
   return (
