@@ -2,6 +2,7 @@
 import {useState, useEffect} from 'react';
 import { useParams, Link } from "react-router-dom";
 import "./PokemonDetailView.css"
+import closeIcon from './close_icon.png'
 
 
 const PokemonDetailView = () => {
@@ -16,7 +17,8 @@ const PokemonDetailView = () => {
 
   const [loader, setLoader] = useState(true);
   const [pkmType,setPkmType] = useState('')
-  const [currentPage, setCurrentPage] = useState('')
+  const [currentPage, setCurrentPage] = useState('');
+  const [pkmWeight, setPkmWeight] = useState('')
 
 
   // fetch data from the api for the specific pokemon in the url
@@ -31,6 +33,7 @@ const PokemonDetailView = () => {
       .then(data =>{
         setPokemonData(data);
         setPkmType(data.types[0].type.name)
+        setPkmWeight((data.weight * 0.1).toFixed(1))
         setCurrentPage(`/?page=${Math.ceil(Number(data.id)/12)}`)
         setLoader(false);
       })
@@ -44,7 +47,7 @@ const PokemonDetailView = () => {
       {loader && <h1>Loading....</h1>}
       {!loader && 
         <div className={`pokemon-detail-view__container ${pkmType}_shadow`}>
-          <Link className='close-icon' to={currentPage}>❌</Link>
+          <Link className='close-icon' to={currentPage}><img src={closeIcon} alt="" /></Link>
           <div className="pokemon-detail-view__header">
             <h4>{pokemonData.name}</h4>  
             <h5>No. {pokemonData.id}</h5>
@@ -69,7 +72,7 @@ const PokemonDetailView = () => {
               <div className="dimensions">
                 <div className='dimensions_info'>
                   <h3>weight: </h3>
-                  <p>{pokemonData.weight * 0.1} Kg</p>
+                  <p>{pkmWeight} Kg</p>
                 </div>
                 <div className='dimensions_info'>
                   <h3>height: </h3>

@@ -20,6 +20,11 @@
   --dark: rgba(115,108,117,1);
   --steel: rgba(137,161,176,1);
 }
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
 a {
   text-decoration: none;
   color: black;
@@ -37,23 +42,43 @@ a {
   margin-right: 30px;
 }
 
-.row {
+.pokemon-list_navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
-
-.pokemon-list__load-more {
+.pokemon-list_buttons_area{
+  margin-left: 10px;
+  display: flex;
+  gap: 10px;
+}
+.pokemon-list__next_button {
   font-family: "Caveat Brush", cursive;
-  background-color: rgb(238, 92, 104);
-  color: white;
-  padding: 20px;
+  background-color: #FFCE31;
+  color: #353199;
   border-radius: 10px;
-  border: none;
-  font-size: 1.4em;
+  border: 1px solid #353199;
+  font-size: 15px;
   cursor: pointer;
-  width: 200px;
+  width: 90px;
+}
+.pokemon-list__next_button:hover{
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.pokemon-list__previous_button{
+  font-family: "Caveat Brush", cursive;
+  background-color: #FFCE31;
+  color: #353199;
+  border-radius: 10px;
+  border: 1px solid #353199;
+  font-size: 15px;
+  cursor: pointer;
+  width: 90px;
+}
+.pokemon-list__previous_button:hover{
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .promo-card-container {
@@ -94,17 +119,17 @@ a {
 
 @media screen and (max-width: 600px ) {
   .promo-card-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   .default-layout {
-    width: 250px; 
-    margin: 30px auto 0;
+    width: 355px; 
+    margin: 10px auto 0;
   }
 
-  .pokemon-list__load-more{
-    width: 130px;
-    padding: 10px;
-    font-size: 15px;
+  .pokemon-list__next_button{
+
+
   }
   .pokemon-list__page-num{
     width: 90px;
@@ -120,6 +145,19 @@ a {
   }
   .main_navbar{
     margin-bottom: 10px;
+  }
+
+  .single-pokemon{
+    align-items: center;
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .single-pokemon__name{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 5px;
   }
 }
 

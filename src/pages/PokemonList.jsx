@@ -33,10 +33,13 @@ const PokemonList = () => {
 
  
 
-  const loadMorePokemon = () => {
-
+  const nextPokemons = () => {
     setOffset(offset + 12); 
     setSearchParams({"page" : Number(page)+1})  
+  }
+  const previousPokemons = () =>{
+    setOffset(offset - 12); 
+    setSearchParams({"page" : Number(page)-1})
   }
 
   
@@ -44,13 +47,19 @@ const PokemonList = () => {
 
   return (
     <div className="pokemon-list">
-      <div className="row">
-        <button 
-          className="pokemon-list__load-more"
-          onClick={loadMorePokemon}
-        > 
-          Load more Pokemon
-        </button>
+      <div className="pokemon-list_navbar">
+        <div className="pokemon-list_buttons_area">
+          {offset!=0 && <button 
+            className="pokemon-list__previous_button"
+            onClick={previousPokemons}
+          > Previous Pokemons </button>}
+          <button 
+            className="pokemon-list__next_button"
+            onClick={nextPokemons}
+          > 
+            Next Pokemons
+          </button>
+        </div>
         <div className="pokemon-list__page-num">pokemon {offset+1} to {offset+12} </div>
       </div>
       <div className="promo-card-container">

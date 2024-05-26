@@ -12,7 +12,7 @@ function MainNavBar(){
             </div>
 
             <div className="links">
-                <Link to={'/?page=1'}>Home</Link>
+                <Link to={'/'}>Home</Link>
             </div>
 
         </div>
