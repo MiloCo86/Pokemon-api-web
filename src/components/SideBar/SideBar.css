@@ -1,0 +1,17 @@
+.sideBar-container{
+    font-family: "Caveat Brush", cursive;
+    width: 150px;
+    margin: 0;
+    padding-top: 10px;
+    
+}
+.sideBar-container h3{
+    margin: 0;
+    margin-left: 10px;
+}
+.sideBar-container p{
+    cursor: pointer;
+    margin: 0;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
